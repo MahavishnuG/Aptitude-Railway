@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      /* Ensure window.fetch has both a getter and setter to prevent "Cannot set property fetch of #<Window> which has only a getter" */
+      (function() {
+        try {
+          var globalObj = typeof window !== 'undefined' ? window : (typeof globalThis !== 'undefined' ? globalThis : self);
+          var nativeFetch = globalObj.fetch;
+          if (typeof nativeFetch === 'function') {
+            var currentFetch = nativeFetch.bind(globalObj);
+            try {
+              Object.defineProperty(globalObj, 'fetch', {
+                get: function() {
+                  return currentFetch;
+                },
+                set: function(newFetch) {
+                  currentFetch = newFetch;
+                },
+                configurable: true,
+                enumerable: true
+              });
+            } catch (defErr) {
+              try {
+                if (typeof Window !== 'undefined' && Window.prototype) {
+                  Object.defineProperty(Window.prototype, 'fetch', {
+                    get: function() {
+                      return currentFetch;
+                    },
+                    set: function(newFetch) {
+                      currentFetch = newFetch;
+                    },
+                    configurable: true,
+                    enumerable: true
+                  });
+                }
+              } catch (protoErr) {}
+            }
+          }
+
+          window.addEventListener('error', function(e) {
+            if (e && e.message && e.message.indexOf('Cannot set property fetch of') !== -1) {
+              if (e.preventDefault) e.preventDefault();
+              if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+              return true;
+            }
+          }, true);
+        } catch (e) {
+          console.warn('Fetch setter protection fallback initialized:', e);
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>RRB Railway Exam Aptitude PWA</title>
+    <meta name="description" content="Official Indian Railways themed CBT exam preparation PWA with Daily 5-Question Challenge, Socratic 3-tier hints, 28-topic aptitude directory, and real-time CBT mock tests." />
+    <meta property="og:title" content="RRB Railway Exam Aptitude PWA" />
+    <meta property="og:description" content="Official Indian Railways themed CBT exam preparation PWA with Daily 5-Question Challenge, Socratic 3-tier hints, 28-topic aptitude directory, and real-time CBT mock tests." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="theme-color" content="#1D4ED8" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="RRB Aptitude" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/pwa-192x192.png" />
+  </head>
+  <body class="bg-[#F8FAFC] text-[#0F172A] font-sans antialiased selection:bg-blue-600 selection:text-white overflow-x-hidden">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,64 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with RRB exam preparation progress, streaks, and score records",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "displayName": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "photoURL": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "streakCount": {
+          "type": "number"
+        },
+        "lastActiveDate": {
+          "type": "string",
+          "maxLength": 32
+        },
+        "points": {
+          "type": "number"
+        },
+        "completedQuestions": {
+          "type": "array"
+        },
+        "dailyFuel": {
+          "type": "number"
+        },
+        "dailyGoal": {
+          "type": "number"
+        },
+        "mockScores": {
+          "type": "array"
+        },
+        "createdAt": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "updatedAt": {
+          "type": "string",
+          "maxLength": 64
+        }
+      },
+      "required": ["userId", "streakCount", "points"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User progress and profile data"
+    }
+  }
+}

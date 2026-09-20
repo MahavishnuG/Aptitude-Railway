@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Safe area padding for mobile notch and navigation bar in PWA */
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 1rem);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top, 0.75rem);
+  }
+  /* Hide scrollbar for clean Shorts/Reels view */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Indian Railways Clean Light Theme Variables */
+:root {
+  --rail-blue: #1d4ed8;
+  --rail-blue-dark: #1e40af;
+  --rail-amber: #d97706;
+  --rail-emerald: #059669;
+  --rail-canvas: #f8fafc;
+  --rail-card: #ffffff;
+  --rail-border: #e2e8f0;
+  --rail-text-head: #0f172a;
+  --rail-text-body: #334155;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  height: 100%;
+  overscroll-behavior-y: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Crisp White Mobile-First Cards */
+.train-card, .cyber-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+}
+
+.train-card-active, .cyber-card-active {
+  background-color: #ffffff;
+  border: 1.5px solid #1d4ed8;
+  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.12);
+}
+
+/* Railway Official Display Badge */
+.station-board {
+  background-color: #1e3a8a;
+  border: 1px solid #1d4ed8;
+  color: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.025em;
+}
+
+/* Railway Track Divider in Light Scheme */
+.track-divider {
+  border-bottom: 2px dashed #cbd5e1;
+  position: relative;
+}
+
+/* Question reading typography specs */
+.question-text {
+  font-size: 1.05rem;
+  line-height: 1.625;
+  color: #0f172a;
+}
+
+/* Touch-optimized option pill buttons */
+.touch-option-pill {
+  min-height: 52px;
+  touch-action: manipulation;
+}

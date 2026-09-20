@@ -1,0 +1,58 @@
+import { Badge } from '../types';
+
+export const RRB_BADGES: Badge[] = [
+  {
+    id: 'track_inspector',
+    title: 'Track Inspector',
+    titleTa: 'தட ஆய்வாளர்',
+    description: 'Solved your first RRB question. The journey has begun!',
+    descriptionTa: 'முதல் கேள்வியை சரியாக தீர்த்து பயணத்தை தொடங்கினீர்கள்!',
+    icon: '🔍',
+    requiredSolved: 1,
+  },
+  {
+    id: 'speed_math',
+    title: 'Speed Math Specialist',
+    titleTa: 'வேகக் கணித நிபுணர்',
+    description: 'Mastered 5 aptitude questions with speed tricks.',
+    descriptionTa: '5 கணித வினாக்களை குறுக்கு வழிகளுடன் தீர்த்துள்ளீர்கள்.',
+    icon: '⚡',
+    requiredSolved: 5,
+  },
+  {
+    id: 'signal_master',
+    title: 'Signal Master',
+    titleTa: 'சமிக்ஞை மாஸ்டர்',
+    description: 'Solved 10 questions without derailment.',
+    descriptionTa: '10 கேள்விகளை வெற்றிகரமாக முடித்து பச்சைக்கொடி காட்டினீர்கள்.',
+    icon: '🟢',
+    requiredSolved: 10,
+  },
+  {
+    id: 'station_master',
+    title: 'Station Master',
+    titleTa: 'நிலையை அதிகாரி (Station Master)',
+    description: 'Reached 15 solved questions. Full daily fuel achieved!',
+    descriptionTa: '15 வினாக்களை தீர்த்து தினசரி இலக்கை அடைந்துவிட்டீர்கள்!',
+    icon: '🚉',
+    requiredSolved: 15,
+  },
+  {
+    id: 'loco_pilot',
+    title: 'Loco Pilot Elite (ALP)',
+    titleTa: 'லோகோ பைலட் எலைட் (ALP)',
+    description: 'Solved 25 aptitude problems across NTPC & ALP syllabus.',
+    descriptionTa: '25 கேள்விகளைத் தீர்த்து ரயிலை அதிவேகத்தில் இயக்குகிறீர்கள்!',
+    icon: '🚂',
+    requiredSolved: 25,
+  },
+  {
+    id: 'railway_engineer',
+    title: 'Chief Section Engineer (JE)',
+    titleTa: 'முதன்மை பிரிவு பொறியாளர் (JE)',
+    description: 'Solved 40+ questions across Time & Distance, SI/CI, and Work.',
+    descriptionTa: '40+ சிக்கலான கேள்விகளை தீர்த்து தேர்வுக்கு முழு தகுதி பெற்றீர்கள்!',
+    icon: '🎖️',
+    requiredSolved: 40,
+  },
+];

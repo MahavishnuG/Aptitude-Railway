@@ -1,0 +1,6 @@
+{
+  "name": "RRB Railway Exam Aptitude PWA",
+  "description": "Official Indian Railways themed CBT exam preparation PWA with Daily 5-Question Challenge, Socratic 3-tier hints, 28-topic aptitude directory, and real-time CBT mock tests.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
